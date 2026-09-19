@@ -9,6 +9,7 @@ import model.TransactionStatus;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -113,5 +114,9 @@ public class TransactionManagement {
         book.returnOneCopy();
         member.returnBook(book.getIsbn());
         transaction.setStatus(TransactionStatus.RETURNED);
+    }
+
+    public List<Transaction> getTransactions() {
+        return Collections.unmodifiableList(transactions);
     }
 }

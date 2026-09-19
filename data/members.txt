@@ -1,0 +1,4 @@
+# id,name,email,phone,membership id,membership type
+M001,Aarav Sharma,aarav@example.com,9876543210,LIB001,STANDARD
+M002,Diya Patel,diya@example.com,9876543211,LIB002,PREMIUM
+M003,Rohan Singh,rohan@example.com,9876543212,LIB003,STANDARD

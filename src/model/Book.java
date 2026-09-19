@@ -16,6 +16,7 @@ public class Book {
     private String genre;
     private int totalCopies;
     private int availableCopies;
+    private double price;
 
     // Default constructor
     public Book() {
@@ -23,7 +24,7 @@ public class Book {
 
     // Parameterized constructor
     public Book(String isbn, String title, String author, String publisher,
-                int yearPublished, String genre, int totalCopies) {
+                int yearPublished, String genre, int totalCopies, double price) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -32,6 +33,7 @@ public class Book {
         this.genre = genre;
         this.totalCopies = totalCopies;
         this.availableCopies = totalCopies; // all copies available initially
+        this.price = price;
     }
 
     // Getters and Setters
@@ -99,6 +101,14 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     /**
      * Checks if at least one copy of this book is available for borrowing.
      */
@@ -141,6 +151,7 @@ public class Book {
                 ", genre='" + genre + '\'' +
                 ", totalCopies=" + totalCopies +
                 ", availableCopies=" + availableCopies +
+                ", price=" + price +
                 '}';
     }
 

@@ -18,7 +18,7 @@ public class BookManagement {
 
     public void updateBook(String isbn, String title, String author,
                             String publisher, int yearPublished,
-                            String genre, int totalCopies) throws BookNotFoundException {
+                            String genre, int totalCopies, double price) throws BookNotFoundException {
 
         Book book = searchByIsbn(isbn);
 
@@ -32,6 +32,7 @@ public class BookManagement {
         book.setYearPublished(yearPublished);
         book.setGenre(genre);
         book.setTotalCopies(totalCopies);
+        book.setPrice(price);
     }
 
     public void deleteBook(String isbn) throws BookNotFoundException {

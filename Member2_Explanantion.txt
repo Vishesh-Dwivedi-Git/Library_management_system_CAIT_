@@ -1,0 +1,17 @@
+process of borrowing/issuing a book 
+   user raises a request which must be approved by any librarian.
+   Once approved, the book is issued to the user and a due date is set - dafault - 14 days.
+   The book is returned by the user within the due date. 
+
+   User can also request a renewal of the borrowed book(must be before the due date+1 day). 
+     - renewal is also subjected to the approval of the librarian.
+     - On renewal, the due date is extended by another 14 days. 
+     - if renewal is rejected , then the user must return the book within 2 days - no fine is levied.
+
+returning a book - must be before the due date+1 day.
+    If returned after the due date+1 day, a fine is levied as below:
+       fine = 2.5* (returned_date - due_date) for each day.
+       max fine is 40% of the cost of the book.
+
+even for returning a book ,member has to raise a request for return and a librarian has to approve it(matches real world scenario - where librarian chekcs the condition of the book as the user returns it). 
+    

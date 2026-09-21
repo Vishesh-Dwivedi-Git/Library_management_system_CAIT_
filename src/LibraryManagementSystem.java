@@ -175,19 +175,95 @@ public class LibraryManagementSystem {
     }
 
     private void updateBook() throws Exception {
-        String isbn = readText("ISBN of book to update: ");
-        String title = readText("New title: ");
-        String author = readText("New author: ");
-        String publisher = readText("New publisher: ");
-        int year = readInt("New year published: ");
-        String genre = readText("New genre: ");
-        int copies = readPositiveInt("New total copies: ");
-        double price = readNonNegativeDouble("New price: ");
 
-        bookManagement.updateBook(isbn, title, author, publisher, year, genre,
-                copies, price);
-        System.out.println("Book updated successfully.");
+    String isbn = readText("ISBN of book to update: ");
+
+    Book book = bookManagement.searchByIsbn(isbn);
+
+    if (book == null) {
+        System.out.println("No book found with ISBN: " + isbn);
+        return;
     }
+
+   
+    System.out.println("\nCurrent Book Details:");
+    System.out.println("Title: " + book.getTitle());
+    System.out.println("Author: " + book.getAuthor());
+    System.out.println("Publisher: " + book.getPublisher());
+    System.out.println("Year Published: " + book.getYearPublished());
+    System.out.println("Genre: " + book.getGenre());
+    System.out.println("Total Copies: " + book.getTotalCopies());
+    System.out.println("Price: " + book.getPrice());
+
+    System.out.println("\nEnter new details.");
+    System.out.println("Press Enter without typing anything to keep the current value.");
+
+  
+    String title = readText("New title: ");
+    if (title.isEmpty()) {
+        title = book.getTitle();
+    }
+
+    
+    String author = readText("New author: ");
+    if (author.isEmpty()) {
+        author = book.getAuthor();
+    }
+
+ 
+    String publisher = readText("New publisher: ");
+    if (publisher.isEmpty()) {
+        publisher = book.getPublisher();
+    }
+
+  
+    String yearInput = readText("New year published: ");
+    int year;
+
+    if (yearInput.isEmpty()) {
+        year = book.getYearPublished();
+    } else {
+        year = Integer.parseInt(yearInput);
+    }
+
+   
+    String genre = readText("New genre: ");
+    if (genre.isEmpty()) {
+        genre = book.getGenre();
+    }
+
+   
+    String copiesInput = readText("New total copies: ");
+    int copies;
+
+    if (copiesInput.isEmpty()) {
+        copies = book.getTotalCopies();
+    } else {
+        copies = Integer.parseInt(copiesInput);
+    }
+
+    String priceInput = readText("New price: ");
+    double price;
+
+    if (priceInput.isEmpty()) {
+        price = book.getPrice();
+    } else {
+        price = Double.parseDouble(priceInput);
+    }
+
+    bookManagement.updateBook(
+            isbn,
+            title,
+            author,
+            publisher,
+            year,
+            genre,
+            copies,
+            price
+    );
+
+    System.out.println("Book updated successfully.");
+}
 
     private void deleteBook() throws BookNotFoundException {
         bookManagement.deleteBook(readText("ISBN of book to delete: "));

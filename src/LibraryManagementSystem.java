@@ -181,8 +181,7 @@ public class LibraryManagementSystem {
     Book book = bookManagement.searchByIsbn(isbn);
 
     if (book == null) {
-        System.out.println("No book found with ISBN: " + isbn);
-        return;
+        throw new BookNotFoundException(isbn);
     }
 
    
@@ -337,9 +336,10 @@ public class LibraryManagementSystem {
 
     private void issueBook() throws Exception {
         Member member = requireMember(readText("Member ID: "));
-        Book book = bookManagement.searchByIsbn(readText("Book ISBN: "));
+        String isbn = readText("Book ISBN: ");
+        Book book = bookManagement.searchByIsbn(isbn);
         if (book == null) {
-            throw new BookNotFoundException("unknown ISBN");
+            throw new BookNotFoundException(isbn);
         }
 
         Transaction transaction = transactionManagement.requestBorrow(member, book);

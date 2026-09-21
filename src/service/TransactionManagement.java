@@ -81,7 +81,7 @@ public class TransactionManagement {
 
     public void requestReturn(Transaction transaction) throws InvalidReturnException {
         if (transaction.getStatus() != TransactionStatus.ISSUED) {
-            throw new InvalidReturnException("Only issued books can be returned.");
+            throw new InvalidReturnException(transaction.getIsbn());
         }
         
         transaction.setReturnDate(LocalDate.now());

@@ -99,7 +99,7 @@ public class Member extends Person {
                 ", name='" + getName() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", membershipId='" + membershipId + '\'' +
+                // ", membershipId='" + membershipId + '\'' +
                 ", membershipType='" + membershipType + '\'' +
                 ", isActive=" + isActive +
                 ", borrowedBooks=" + borrowedBookIsbns.size() +
